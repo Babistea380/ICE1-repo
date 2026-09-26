@@ -37,7 +37,7 @@ public class CardTrick {
         //insert code to ask the user for Card value and suit, create their card
         // and search magicHand here
         //Then report the result here
-        Scanner scan = new Scanner(System.in);
+        /**Scanner scan = new Scanner(System.in);
         System.out.println("Try to guess a card in hand. \n");
         System.out.println("Enter the rank: ");
         
@@ -59,9 +59,19 @@ public class CardTrick {
                 break;
             }
         }
+        **/
+        
+        boolean match = false;
+        for (Card c : magicHand) {
+            // slightly more complex but we have to case match in case player types hearts HEARTS Hearts etc.
+            if (c.getValue() == luckyCard.getValue() && c.getSuit().equalsIgnoreCase(luckyCard.getSuit())) {
+                match = true;
+                break;
+            }
+        }
         
         if (match){
-            System.out.println("You did it! You guessed correctly!");
+            System.out.println("You did it! You pulled the lucky Card!");
         }
         else{
             System.out.println("Ohh, nice try but no luck!");
