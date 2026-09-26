@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
 /**
  * A class that models playing card Objects. Cards have 
@@ -13,6 +12,10 @@ package ca.sheridancollege.week3.softwarefundamentals.ice1;
  * This code is to be used in ICE1. When you create your own branch,
  * add your name as a modifier.
  * @author dancye
+ * 
+ * Files modified by Garrett Holland as part of the 2026 Fall SYST 17796 class
+ * 991442405
+ * 2026/09/226
  */
 public class Card {
 
