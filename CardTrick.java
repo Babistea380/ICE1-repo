@@ -40,21 +40,13 @@ public class CardTrick {
 
 
         
-        //insert code to ask the user for Card value and suit, create their card
-        Scanner input=new Scanner(System.in);
-        System.out.println("choose among(\"Hearts\", \"Diamonds\", \"Spades\", \"Clubs\") ");
-        String userSuit=input.next();
+       
         
-        System.out.println("choose number on Card ");
-        int userValue=input.nextInt();
-        Card userCard = new Card();
-        userCard.setSuit(userSuit);
-        userCard.setValue(userValue);
         
         // and search magicHand here
         boolean check=false;
         for (Card c: magicHand){
-            if(userCard.getSuit().equals(c.getSuit()) && userCard.getValue()==c.getValue()){
+            if(luckyCard.getSuit().equals(c.getSuit()) && luckyCard.getValue()==c.getValue()){
                 check=true;
                 break;
             }
@@ -62,9 +54,9 @@ public class CardTrick {
         
         //Then report the result here
          if (check) {
-            System.out.println("Your card is found");
+            System.out.println("Your card is found. You won.");
         } else {
-            System.out.println("Your card not found.");
+            System.out.println("Your card not found.you lost");
         }
         
     }
