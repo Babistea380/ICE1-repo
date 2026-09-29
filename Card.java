@@ -14,6 +14,7 @@ package ca.sheridancollege.week3.softwarefundamentals.ice1;
  * add your name as a modifier.
  * @author dancye
  * @modifier Lucas Brdar
+ * Modified Date: September 29th, 2026
  * (Student ID: 991835135)
  */
 public class Card {
