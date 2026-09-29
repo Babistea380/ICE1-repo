@@ -23,6 +23,11 @@ public class CardTrick {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         Card[] magicHand = new Card[7];
+
+        // Hard-Coded luckycard
+        Card luckyCard = new Card();
+        luckyCard.setValue(7);
+        luckyCard.setSuit("Spades");
         
         for (int i=0; i < magicHand.length; i++)
         {
