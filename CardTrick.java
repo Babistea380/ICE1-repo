@@ -38,57 +38,7 @@ public class CardTrick {
             magicHand[i] = c;
         }
         
-        int cardValue = -1;
-        int cardSuitInt = -1;
-        boolean validInput = false;
-        String cardSuitString = "";
-        
-        // Get Card Value
-        while (!validInput) {
-            System.out.println("(Note: #'s 2-13 Accepted, 11-13 are equal to the Face Cards");
-            System.out.println("Please Input your Lucky Cards Value!: ");
-            
-            if (scanner.hasNextInt()) {
-                cardValue = scanner.nextInt();
-                validInput = true;
-            }
-            else{
-                System.out.println("Error: Invalid Input!");
-                scanner.next();
-            }
-        }
-        
-        validInput = false;
-        
-        // Get Card Suit
-        while (!validInput) {
-            System.out.println("(Note: 0 - Hearts, 1 - Diamonds, 2 - Spades, 3 - Clubs");
-            System.out.println("Please Input your Lucky Cards Suit! (ints: 0-3): ");
-            
-            if (scanner.hasNextInt()) {
-                cardSuitInt = scanner.nextInt();
-                validInput = true;
-            }
-            else{
-                System.out.println("Error: Invalid Input!");
-                scanner.next();
-            }
-        }
-        
-        // Finalize the Suit String
-        if (cardSuitInt == 0) { cardSuitString = "Hearts"; }
-        else if (cardSuitInt == 1) { cardSuitString = "Diamonds"; }
-        else if (cardSuitInt == 2) { cardSuitString = "Spades"; }
-        else { cardSuitString = "Clubs"; }
-        
-        
-        // Lucky Card Creation
-        Card luckyCard = new Card();
-        luckyCard.setValue(cardValue);
-        luckyCard.setSuit(cardSuitString);
-        
         System.out.println("Your Card is the " + luckyCard.getValue() + " of " + luckyCard.getSuit());
-        
         
         //and search magicHand here
         boolean hitTheJackpot = false;
