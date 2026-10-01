@@ -121,6 +121,11 @@ public class CardTrick {
         if (!foundCard) {
             System.out.println("Could not find " + guessedValue + " of " + chosenSuit + " in deck.");
         }
+
+        // new card creation
+        Card luckyCard = new Card();
+        luckyCard.setValue(8);
+        luckyCard.setSuit("Clubs");
         
     }
         
