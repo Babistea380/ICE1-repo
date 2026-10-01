@@ -81,11 +81,14 @@ public class CardTrick {
         boolean suitValid = false;
         String getValue;
         String getSuit;
+        int guessedValue = 0;
+        String chosenSuit = " ";
         
         while (!valueValid) {
             System.out.print("Enter Card Value (1-13): ");
             getValue = read.nextLine();
                 if (valueValid(getValue)) {
+                    guessedValue = Integer.parseInt(getValue);
                     valueValid = true;
                 }
         }
@@ -94,6 +97,7 @@ public class CardTrick {
             System.out.print("Enter Suit (0 = clubs, 1 = spades, 2 = diamonds, 3 = hearts): ");
             getSuit = read.nextLine();
                 if (suitValid(getSuit)) {
+                    chosenSuit = Card.SUITS[Integer.parseInt(getSuit)];
                     suitValid = true;
                 }
         }
@@ -102,6 +106,22 @@ public class CardTrick {
         // and search magicHand here
         //Then report the result here
         
+        boolean foundCard = false;
+        for (int i=0; i<magicHand.length; i++) {
+            if (magicHand[i].getValue() == guessedValue) {
+                if (magicHand[i].getSuit().equals(chosenSuit)) {
+                    foundCard = true;
+                    System.out.println("Found " + guessedValue + " of " + magicHand[i].getSuit() + " in deck.");
+                    break;
+                }
+            }
+        }
+        if (!foundCard) {
+            System.out.println("Could not find " + guessedValue + " of " + chosenSuit + " in deck.");
+        }
+        
     }
-    
+        
 }
+    
+
