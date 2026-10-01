@@ -84,6 +84,8 @@ public class CardTrick {
         int guessedValue = 0;
         String chosenSuit = " ";
         
+        System.out.println("Pick a card, any card!");
+        
         while (!valueValid) {
             System.out.print("Enter Card Value (1-13): ");
             getValue = read.nextLine();
