@@ -5,7 +5,6 @@ package ca.sheridancollege.bakerryl.ice1;
  * and open the template in the editor.
  */
 // package ca.sheridancollege.week3.softwarefundamentals.ice1;
-import java.util.Scanner;
 import java.util.Random;
 
 /**
@@ -66,7 +65,7 @@ public class CardTrick {
     {
         Card[] magicHand = new Card[7];
         
-        for (int i=0; i<magicHand.length; i++)
+        for (int i=0; i < magicHand.length; i++)
         {
             Card c = new Card();
             Random random = new Random();
@@ -74,59 +73,30 @@ public class CardTrick {
             c.setValue(randomValue);
             int randomSuit = random.nextInt(4); 
             c.setSuit(Card.SUITS[randomSuit]);
+            magicHand[i] = c;
         }
         
-        Scanner read = new Scanner(System.in);
-        boolean valueValid = false;
-        boolean suitValid = false;
-        String getValue;
-        String getSuit;
-        int guessedValue = 0;
-        String chosenSuit = " ";
-        
-        System.out.println("Pick a card, any card!");
-        
-        while (!valueValid) {
-            System.out.print("Enter Card Value (1-13): ");
-            getValue = read.nextLine();
-                if (valueValid(getValue)) {
-                    guessedValue = Integer.parseInt(getValue);
-                    valueValid = true;
-                }
-        }
-        
-        while (!suitValid) {
-            System.out.print("Enter Suit (0 = clubs, 1 = spades, 2 = diamonds, 3 = hearts): ");
-            getSuit = read.nextLine();
-                if (suitValid(getSuit)) {
-                    chosenSuit = Card.SUITS[Integer.parseInt(getSuit)];
-                    suitValid = true;
-                }
-        }
+        Card luckyCard = new Card();
+        luckyCard.setValue(8);
+        luckyCard.setSuit("Clubs");
         
         //insert code to ask the user for Card value and suit, create their card
         // and search magicHand here
         //Then report the result here
         
         boolean foundCard = false;
-        for (int i=0; i<magicHand.length; i++) {
-            if (magicHand[i].getValue() == guessedValue) {
-                if (magicHand[i].getSuit().equals(chosenSuit)) {
-                    foundCard = true;
-                    System.out.println("Found " + guessedValue + " of " + magicHand[i].getSuit() + " in deck.");
-                    break;
-                }
+        for (int i=0; i < magicHand.length; i++) {
+            if (magicHand[i].getValue() == luckyCard.getValue() && magicHand[i].getSuit().equals(luckyCard.getSuit())) {
+                foundCard = true;
+                System.out.println("Found Lucky Card in deck!");
+                break;
             }
         }
         if (!foundCard) {
-            System.out.println("Could not find " + guessedValue + " of " + chosenSuit + " in deck.");
+            System.out.println("Could not find Lucky Card in deck...");
         }
 
-        // new card creation
-        Card luckyCard = new Card();
-        luckyCard.setValue(8);
-        luckyCard.setSuit("Clubs");
-        
+      
     }
         
 }
