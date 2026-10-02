@@ -5,8 +5,6 @@
  */
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
-import java.util.Scanner;
-
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
  * and then asks the user to pick a card and searches the array of cards
@@ -20,16 +18,6 @@ public class CardTrick {
     private static final int TOTAL_SUITS = 4;
     public static final int HAND_SIZE = 7;
 
-    private static boolean isValidSuit(String suit) {
-        for (String s : Card.SUITS) {
-            if (suit.equalsIgnoreCase(s)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     public static void main(String[] args) {
         Card[] magicHand = new Card[HAND_SIZE];
 
@@ -40,44 +28,12 @@ public class CardTrick {
             magicHand[i] = c;
         }
 
-        // Ask user for Card value and suit
-        Scanner scanner = new Scanner(System.in);
-        String suit;
-        int rank;
+        // Create lucky card
+        Card luckyCard = new Card();
+        luckyCard.setSuit("Diamonds");
+        luckyCard.setValue(4);
 
-        // Get suit from user
-        System.out.print("Pick a suit: ");
-        suit = scanner.next();
-
-        // Re-prompt if invalid suit entered
-        while (!isValidSuit(suit)) {
-            System.out.printf("\n%s is not a valid suit.\nSelect Hearts, Diamonds, Spades, or Clubs: ", suit);
-            suit = scanner.next();
-        }
-
-        // Get rank from user
-        System.out.printf("Pick a rank: (1-%d): ", TOTAL_RANKS);
-        while (true) {
-            if (scanner.hasNextInt()) {
-                rank = scanner.nextInt();
-
-                // Exit loop if valid rank entered
-                if (rank >= 1 && rank <= TOTAL_RANKS) {
-                    break;
-                }
-
-                System.out.printf("\n%d is not a valid rank.\nSelect a number from 1 to %d: ", rank, TOTAL_RANKS);
-
-            } else { // Input was not an integer
-                System.out.printf("\nInvalid input.\nSelect a number from 1 to %d: ", TOTAL_RANKS);
-                scanner.next(); // Clear vlaue
-            }
-        }
-        
-        // Create user's selected card
-        Card userCard = new Card();
-        userCard.setSuit(suit);
-        userCard.setValue(rank);
+        System.out.printf("The lucky card is the %d of %s\n\n", luckyCard.getValue(), luckyCard.getSuit());
 
         // Search magic hand for user's card
         int counter = 1;
@@ -85,7 +41,7 @@ public class CardTrick {
         for (Card c : magicHand) {
             System.out.println(" - Card " + counter + ": " + c.getValue() + " of " + c.getSuit());
 
-            if (c.getSuit().equalsIgnoreCase(userCard.getSuit()) && c.getValue() == userCard.getValue()) {
+            if (c.getSuit().equalsIgnoreCase(luckyCard.getSuit()) && c.getValue() == luckyCard.getValue()) {
                 matchFound = true;
                 System.out.println("Match found!");
             }
@@ -94,10 +50,10 @@ public class CardTrick {
         }
 
         if (!matchFound) {
-            System.out.println("Your card was not in the magic hand :(");
+            System.out.println("The lucky card was not in the magic hand :(");
+        } else {
+            System.out.println("The magic hand includes the lucky card!");
         }
-
-        scanner.close();
     }
 
 }
