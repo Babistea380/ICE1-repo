@@ -29,6 +29,9 @@ public class CardTrick {
         String userSuit;
         boolean searchResult = false;
         Card userCard = new Card();
+        Card LuckyCard = new Card();
+        LuckyCard.setSuit(12);
+        LuckyCard.setValue("Hearts");
         for (int i=0; i<magicHand.length; i++)
         {
             Card c = new Card();
@@ -54,7 +57,6 @@ public class CardTrick {
         {
             if (magicHand[i].getValue() == userCard.getValue() && magicHand[i].getSuit().equals(userCard.getSuit())){
                 searchResult = true;
-                break;
         }
         }
         //Then report the result here
