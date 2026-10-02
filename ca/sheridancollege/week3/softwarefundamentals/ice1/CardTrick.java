@@ -32,7 +32,11 @@ public class CardTrick {
 
             magicHand[i] = card;
         }
-
+        
+        Card luckyCard = new Card();
+        luckyCard.setValue(5);
+        luckyCard.setSuit("Hearts");
+        
         Scanner keyboard = new Scanner(System.in);
 
         System.out.print("Choose a card value from 1 to 13: ");
