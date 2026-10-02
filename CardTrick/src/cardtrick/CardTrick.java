@@ -29,9 +29,9 @@ public class CardTrick {
         String userSuit;
         boolean searchResult = false;
         Card userCard = new Card();
-        Card LuckyCard = new Card();
-        LuckyCard.setSuit(12);
-        LuckyCard.setValue("Hearts");
+        Card luckyCard = new Card();
+        luckyCard.setSuit("Hearts");
+        luckyCard.setValue(12);
         for (int i=0; i<magicHand.length; i++)
         {
             Card c = new Card();
@@ -43,24 +43,17 @@ public class CardTrick {
        
         
         //insert code to ask the user for Card value and suit, create their card
-        System.out.println("Pick a card value (1-13), Ace=1, King=13)");
-        userValue = scan.nextInt();
-        System.out.println("Pick a suit (Hearts, Diamonds, Spades, Clubs)");
-        //Buffer scanner
-        scan.nextLine();
-        userSuit = scan.nextLine();
-        userCard.setSuit(userSuit);
-        userCard.setValue(userValue);
+//        
         
         // and search magicHand here
         for (int i=0; i<magicHand.length; i++)
         {
-            if (magicHand[i].getValue() == userCard.getValue() && magicHand[i].getSuit().equals(userCard.getSuit())){
+            if (magicHand[i].getValue() == luckyCard.getValue() && magicHand[i].getSuit().equals(luckyCard.getSuit())){
                 searchResult = true;
         }
         }
         //Then report the result here
-        System.out.println(searchResult ? "The card is in the magic deck" : "The card is not in the magic deck");
+        System.out.println(searchResult ? "The card is in the deck, You win!" : "The card is not in the deck, You lose.");
     }
     
 } 
