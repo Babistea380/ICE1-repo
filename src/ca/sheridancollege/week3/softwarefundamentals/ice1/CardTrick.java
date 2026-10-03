@@ -70,6 +70,10 @@ public class CardTrick {
         Card userCard = new Card();
         userCard.setValue(userValue);
         userCard.setSuit(userSuit);
+
+        Card luckyCard = new Card();
+        luckyCard.setValue(3);
+        luckyCard.setSuit("Hearts");
         
         boolean found = false;
         for (int i=0; i<magicHand.length; i++)
