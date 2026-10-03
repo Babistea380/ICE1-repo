@@ -44,9 +44,9 @@ public class CardTrick {
             }
         }
         if (found) {
-            System.out.println("You win! The lucky card is in the magic deck");
+            System.out.println("You win! The lucky card is in the magic hand");
         } else {
-            System.out.println("You lose! The lucky card is not in the magic deck");
+            System.out.println("You lose! The lucky card is not in the magic hand");
         }
 
     }
