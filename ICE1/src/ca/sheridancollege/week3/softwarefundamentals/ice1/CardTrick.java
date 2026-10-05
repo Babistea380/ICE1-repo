@@ -25,8 +25,8 @@ public class CardTrick {
             c.setSuit(Card.SUITS[(int)(Math.random()*4)]);
             
             //Comment in for an easier time guessing what cards are in hand.
-            //System.out.println(c.getSuit());
-            //System.out.println(c.getValue());
+//            System.out.println(c.getSuit());
+//            System.out.println(c.getValue());
             magicHand[i] = c;
         }
 
@@ -34,10 +34,12 @@ public class CardTrick {
         luckyCard.setValue(14); // Ace
         luckyCard.setSuit(Card.SUITS[2]); // Spades
         
+        magicHand[7]= luckyCard;
+        
         //insert code to ask the user for Card value and suit, create their card
         Scanner s = new Scanner(System.in);
         
-        System.out.println("---Pick any card---\n\nEnter value:");
+        System.out.println("---Pick any card---\n\nEnter value (2-14):");
         int pickedValue = s.nextInt();
         
         System.out.println("\nEnter suit (Spades, Clubs, Diamonds, Hearts):");
