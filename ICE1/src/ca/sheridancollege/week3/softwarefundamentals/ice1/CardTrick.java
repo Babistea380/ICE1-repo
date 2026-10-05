@@ -18,10 +18,8 @@ public class CardTrick {
     
     public static void main(String[] args)
     {
-        Card[] magicHand = new Card[7]; 
-        for (int i=0; i<magicHand.length; i++)
-        {
-            
+        Card[] magicHand = new Card[8]; 
+        for (int i=0; i<magicHand.length-1; i++) {   
             Card c = new Card();
             c.setValue((int)(Math.random()*13)+1);
             c.setSuit(Card.SUITS[(int)(Math.random()*4)]);
@@ -29,9 +27,12 @@ public class CardTrick {
             //Comment in for an easier time guessing what cards are in hand.
             //System.out.println(c.getSuit());
             //System.out.println(c.getValue());
-            
             magicHand[i] = c;
         }
+
+        Card luckyCard =  new Card();
+        luckyCard.setValue(14); // Ace
+        luckyCard.setSuit(Card.SUITS[2]); // Spades
         
         //insert code to ask the user for Card value and suit, create their card
         Scanner s = new Scanner(System.in);
